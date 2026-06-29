@@ -452,6 +452,73 @@ p {
   font-weight: 800;
 }
 
+.contact-page {
+  display: grid;
+  min-height: calc(100vh - 82px);
+  place-items: center;
+  padding: 70px 20px;
+  background:
+    linear-gradient(rgba(252, 251, 249, 0.84), rgba(252, 251, 249, 0.96)),
+    url("assets/hero-white-sofa.jpeg") center / cover;
+}
+
+.contact-panel {
+  display: grid;
+  width: min(1040px, 100%);
+  grid-template-columns: minmax(0, 1fr) minmax(320px, 430px);
+  gap: clamp(32px, 6vw, 72px);
+  align-items: center;
+  border: 1px solid rgba(230, 222, 215, 0.9);
+  border-radius: 8px;
+  padding: clamp(28px, 5vw, 58px);
+  background: rgba(252, 251, 249, 0.92);
+  box-shadow: var(--shadow);
+  backdrop-filter: blur(16px);
+}
+
+.contact-panel h1 {
+  font-size: clamp(50px, 7vw, 84px);
+}
+
+.contact-methods {
+  display: grid;
+  gap: 14px;
+}
+
+.contact-method {
+  display: grid;
+  gap: 4px;
+  border: 1px solid var(--line);
+  border-radius: 8px;
+  padding: 20px;
+  background: rgba(255, 255, 255, 0.68);
+  transition: transform 0.2s ease, border-color 0.2s ease, background 0.2s ease;
+}
+
+.contact-method:hover {
+  transform: translateY(-2px);
+  border-color: var(--coffee);
+  background: var(--warm-white);
+}
+
+.contact-method span {
+  color: var(--coffee-dark);
+  font-size: 13px;
+  font-weight: 800;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+}
+
+.contact-method strong {
+  color: var(--chocolate);
+  font-size: 19px;
+}
+
+.contact-method small {
+  color: var(--muted);
+  font-size: 14px;
+}
+
 @media (max-width: 980px) {
   .site-header {
     align-items: flex-start;
@@ -468,6 +535,7 @@ p {
   .hero,
   .split,
   .expertise,
+  .contact-panel,
   .media-strip {
     grid-template-columns: 1fr;
   }
