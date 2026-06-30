@@ -133,6 +133,10 @@ h1 {
   line-height: 0.94;
 }
 
+h1 span {
+  display: block;
+}
+
 .roles {
   margin-bottom: 34px;
   color: var(--graphite);
@@ -186,12 +190,13 @@ h1 {
 
 .hero-image figcaption {
   position: absolute;
-  right: 24px;
+  right: 22px;
   bottom: 24px;
   max-width: 230px;
-  border-radius: 999px;
-  padding: 12px 18px;
-  background: rgba(251, 250, 248, 0.82);
+  border: 1px solid rgba(221, 211, 201, 0.72);
+  border-radius: 14px;
+  padding: 14px 18px;
+  background: rgba(251, 250, 248, 0.86);
   color: var(--brown);
   font-size: 14px;
   backdrop-filter: blur(14px);
