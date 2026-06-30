@@ -312,9 +312,6 @@ h1 span {
 }
 
 .timeline-item {
-  display: grid;
-  grid-template-columns: 82px minmax(0, 1fr);
-  gap: 28px;
   padding: 36px 0;
 }
 
