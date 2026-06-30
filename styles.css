@@ -31,9 +31,7 @@ body::before {
   position: fixed;
   inset: 0;
   z-index: -1;
-  background:
-    radial-gradient(circle at 78% 12%, rgba(232, 221, 210, 0.82), transparent 34%),
-    linear-gradient(180deg, #f4f1ed 0%, var(--white) 68%);
+  background: linear-gradient(180deg, #f3f1ee 0%, var(--white) 72%);
   content: "";
 }
 
@@ -113,13 +111,12 @@ textarea {
   display: grid;
   min-height: 100vh;
   width: 100%;
-  grid-template-columns: minmax(0, 0.9fr) minmax(460px, 1.18fr);
-  gap: 0;
+  grid-template-columns: minmax(520px, 0.86fr) minmax(520px, 1.14fr);
+  gap: clamp(28px, 4vw, 76px);
   align-items: center;
-  padding: 118px clamp(22px, 5vw, 72px) 0;
+  padding: 112px clamp(28px, 5vw, 92px) 0;
   overflow: hidden;
-  background:
-    linear-gradient(90deg, #fbfaf8 0%, #fbfaf8 43%, rgba(231, 225, 219, 0.96) 66%, rgba(218, 215, 214, 0.96) 100%);
+  background: #eeecea;
 }
 
 .hero::after {
@@ -127,8 +124,8 @@ textarea {
   inset: 0;
   pointer-events: none;
   background:
-    linear-gradient(90deg, rgba(251, 250, 248, 0) 0%, rgba(251, 250, 248, 0) 44%, rgba(251, 250, 248, 0.34) 52%, rgba(251, 250, 248, 0) 66%),
-    linear-gradient(180deg, rgba(251, 250, 248, 0) 72%, var(--white) 100%);
+    linear-gradient(90deg, rgba(238, 236, 234, 0) 0%, rgba(238, 236, 234, 0) 42%, rgba(238, 236, 234, 0.2) 50%, rgba(238, 236, 234, 0) 64%),
+    linear-gradient(180deg, rgba(238, 236, 234, 0) 78%, var(--white) 100%);
   content: "";
 }
 
@@ -158,7 +155,7 @@ p {
 h1 {
   margin-bottom: 28px;
   color: var(--brown);
-  font-size: clamp(56px, 8vw, 112px);
+  font-size: clamp(56px, 7.2vw, 104px);
   font-weight: 500;
   letter-spacing: -0.065em;
   line-height: 0.94;
@@ -209,18 +206,22 @@ h1 span {
 .hero-image {
   position: relative;
   z-index: 1;
+  align-self: stretch;
+  display: flex;
+  align-items: flex-end;
+  justify-content: flex-end;
   margin: 0;
 }
 
 .hero-image img {
-  width: 100%;
-  height: calc(100vh - 118px);
-  min-height: 720px;
+  width: min(58vw, 820px);
+  height: calc(100vh - 112px);
+  min-height: 680px;
   border-radius: 0;
-  object-fit: cover;
-  object-position: 52% 50%;
-  mix-blend-mode: multiply;
-  filter: saturate(0.92) contrast(0.96) brightness(1.04);
+  object-fit: contain;
+  object-position: right bottom;
+  mix-blend-mode: normal;
+  filter: saturate(0.94) contrast(0.98) brightness(1.01);
 }
 
 .hero-integrated::before {
@@ -229,21 +230,21 @@ h1 span {
   z-index: 2;
   pointer-events: none;
   background:
-    linear-gradient(90deg, rgba(251, 250, 248, 0.96) 0%, rgba(251, 250, 248, 0.7) 16%, rgba(251, 250, 248, 0) 38%),
-    linear-gradient(180deg, rgba(251, 250, 248, 0) 72%, var(--white) 100%);
+    linear-gradient(90deg, #eeecea 0%, rgba(238, 236, 234, 0.88) 10%, rgba(238, 236, 234, 0) 30%),
+    linear-gradient(180deg, rgba(238, 236, 234, 0) 78%, var(--white) 100%);
   content: "";
 }
 
 .hero-image figcaption {
   position: absolute;
   z-index: 3;
-  right: 22px;
-  bottom: 24px;
+  right: clamp(16px, 3vw, 56px);
+  bottom: clamp(24px, 5vw, 72px);
   max-width: 230px;
   border: 1px solid rgba(221, 211, 201, 0.72);
   border-radius: 14px;
   padding: 14px 18px;
-  background: rgba(251, 250, 248, 0.86);
+  background: rgba(251, 250, 248, 0.9);
   color: var(--brown);
   font-size: 14px;
   backdrop-filter: blur(14px);
