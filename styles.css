@@ -852,3 +852,19 @@ h1 span {
     display: grid;
   }
 }
+
+/* Tilda host overrides */
+.site-header a,
+.nav a,
+.small-link,
+.footer a,
+.contact-lines a,
+.text-button {
+  color: inherit !important;
+}
+.nav a { color: var(--muted) !important; }
+.small-link, .text-button { color: var(--brown) !important; }
+.button { color: var(--white) !important; text-decoration: none !important; }
+.button:hover { color: var(--brown) !important; }
+.logo { color: var(--graphite) !important; }
+.contact-lines a, .footer a { color: var(--brown) !important; }
