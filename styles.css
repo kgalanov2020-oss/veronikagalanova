@@ -27,6 +27,16 @@ body {
   line-height: 1.55;
 }
 
+body::before {
+  position: fixed;
+  inset: 0;
+  z-index: -1;
+  background:
+    radial-gradient(circle at 78% 12%, rgba(232, 221, 210, 0.82), transparent 34%),
+    linear-gradient(180deg, #f4f1ed 0%, var(--white) 68%);
+  content: "";
+}
+
 img {
   display: block;
   max-width: 100%;
@@ -99,12 +109,33 @@ textarea {
 }
 
 .hero {
+  position: relative;
   display: grid;
   min-height: 100vh;
-  grid-template-columns: minmax(0, 0.92fr) minmax(360px, 520px);
-  gap: clamp(44px, 8vw, 110px);
+  width: 100%;
+  grid-template-columns: minmax(0, 0.9fr) minmax(460px, 1.18fr);
+  gap: 0;
   align-items: center;
-  padding-top: 118px;
+  padding: 118px clamp(22px, 5vw, 72px) 0;
+  overflow: hidden;
+  background:
+    linear-gradient(90deg, #fbfaf8 0%, #fbfaf8 43%, rgba(231, 225, 219, 0.96) 66%, rgba(218, 215, 214, 0.96) 100%);
+}
+
+.hero::after {
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  background:
+    linear-gradient(90deg, rgba(251, 250, 248, 0) 0%, rgba(251, 250, 248, 0) 44%, rgba(251, 250, 248, 0.34) 52%, rgba(251, 250, 248, 0) 66%),
+    linear-gradient(180deg, rgba(251, 250, 248, 0) 72%, var(--white) 100%);
+  content: "";
+}
+
+.hero-text {
+  position: relative;
+  z-index: 2;
+  max-width: 760px;
 }
 
 .overline {
@@ -177,19 +208,35 @@ h1 span {
 
 .hero-image {
   position: relative;
+  z-index: 1;
   margin: 0;
 }
 
 .hero-image img {
   width: 100%;
-  height: min(78vh, 760px);
-  border-radius: var(--radius);
+  height: calc(100vh - 118px);
+  min-height: 720px;
+  border-radius: 0;
   object-fit: cover;
-  object-position: center;
+  object-position: 52% 50%;
+  mix-blend-mode: multiply;
+  filter: saturate(0.92) contrast(0.96) brightness(1.04);
+}
+
+.hero-integrated::before {
+  position: absolute;
+  inset: 0;
+  z-index: 2;
+  pointer-events: none;
+  background:
+    linear-gradient(90deg, rgba(251, 250, 248, 0.96) 0%, rgba(251, 250, 248, 0.7) 16%, rgba(251, 250, 248, 0) 38%),
+    linear-gradient(180deg, rgba(251, 250, 248, 0) 72%, var(--white) 100%);
+  content: "";
 }
 
 .hero-image figcaption {
   position: absolute;
+  z-index: 3;
   right: 22px;
   bottom: 24px;
   max-width: 230px;
@@ -713,6 +760,12 @@ h1 span {
     order: -1;
   }
 
+  .hero {
+    width: min(1200px, calc(100% - 44px));
+    padding: 118px 0 0;
+    background: transparent;
+  }
+
   .tabs {
     grid-template-columns: 1fr 1fr;
   }
@@ -746,6 +799,9 @@ h1 span {
   .pause img,
   .contact-section img {
     height: 480px;
+    min-height: 0;
+    border-radius: var(--radius);
+    mix-blend-mode: normal;
   }
 
   .intro-cards {
