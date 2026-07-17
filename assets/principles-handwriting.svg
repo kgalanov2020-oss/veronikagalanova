@@ -1,0 +1,39 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1160 720" role="img" aria-labelledby="title desc">
+  <title id="title">В работе для меня очень важны</title>
+  <desc id="desc">Конфиденциальность, уважение, честность, профессиональная глубина</desc>
+  <defs>
+    <filter id="ink" x="-4%" y="-4%" width="108%" height="108%">
+      <feTurbulence type="fractalNoise" baseFrequency="0.018" numOctaves="2" seed="17" result="grain"/>
+      <feDisplacementMap in="SourceGraphic" in2="grain" scale="0.72" xChannelSelector="R" yChannelSelector="G"/>
+    </filter>
+    <filter id="softInk" x="-6%" y="-6%" width="112%" height="112%">
+      <feGaussianBlur in="SourceAlpha" stdDeviation="0.16" result="blur"/>
+      <feOffset dx="0.25" dy="0.35" result="offset"/>
+      <feMerge>
+        <feMergeNode in="offset"/>
+        <feMergeNode in="SourceGraphic"/>
+      </feMerge>
+    </filter>
+  </defs>
+  <g fill="none" stroke="#efe4d2" stroke-linecap="round" stroke-linejoin="round" opacity="0.62">
+    <path d="M166 132c-42 52-54 114-36 180" stroke-width="1.5"/>
+    <path d="M982 566c39-55 48-113 28-176" stroke-width="1.2"/>
+    <path d="M225 638c198-31 446-36 708-12" stroke-width="1.1" opacity="0.34"/>
+  </g>
+  <g filter="url(#ink)" fill="#f5ead9" stroke="#f5ead9" stroke-width="0.34" paint-order="stroke fill"
+     font-family="Apple Chancery, Snell Roundhand, Noteworthy, Bradley Hand, Segoe Script, cursive"
+     font-weight="400" letter-spacing="0">
+    <text x="580" y="176" text-anchor="middle" font-size="79" transform="rotate(-1.1 580 176)" filter="url(#softInk)">
+      В работе для меня
+    </text>
+    <text x="578" y="255" text-anchor="middle" font-size="84" transform="rotate(0.8 578 255)" filter="url(#softInk)">
+      очень важны
+    </text>
+    <g font-size="48" opacity="0.9" filter="url(#softInk)">
+      <text x="322" y="378" transform="rotate(-0.7 322 378)">- конфиденциальность</text>
+      <text x="374" y="456" transform="rotate(0.55 374 456)">- уважение</text>
+      <text x="352" y="526" transform="rotate(-0.45 352 526)">- честность</text>
+      <text x="298" y="600" transform="rotate(0.4 298 600)">- профессиональная глубина</text>
+    </g>
+  </g>
+</svg>
