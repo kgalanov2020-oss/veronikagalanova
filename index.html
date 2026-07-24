@@ -14,7 +14,7 @@
     <meta property="og:image" content="assets/hero.jpg">
     <meta property="og:locale" content="ru_RU">
     <link rel="preload" href="assets/hero.jpg" as="image">
-    <link rel="stylesheet" href="styles.css?v=20260724-mobile-interlude">
+    <link rel="stylesheet" href="styles.css?v=20260724-header-telegram">
   </head>
   <body>
     <a class="skip-link" href="#main">К содержанию</a>
@@ -23,13 +23,24 @@
       <a class="brand" href="#top" aria-label="Вероника Галанова">
         <img src="assets/logo.png" alt="" width="44" height="44">
       </a>
-      <nav class="nav" aria-label="Основная навигация">
+      <button class="nav-toggle" type="button" aria-expanded="false" aria-controls="site-nav" aria-label="Открыть меню">
+        <span></span>
+        <span></span>
+        <span></span>
+      </button>
+      <nav class="nav" id="site-nav" aria-label="Основная навигация">
         <a href="#top">Обо мне</a>
         <a href="#method">Метод</a>
         <a href="#formats">Форматы работы</a>
         <a href="#experience">Опыт</a>
         <a href="#contacts">Контакты</a>
       </nav>
+      <a class="header-cta" href="https://t.me/veronika_galanova?text=%D0%97%D0%B4%D1%80%D0%B0%D0%B2%D1%81%D1%82%D0%B2%D1%83%D0%B9%D1%82%D0%B5%2C%20%D0%92%D0%B5%D1%80%D0%BE%D0%BD%D0%B8%D0%BA%D0%B0%21%20%D0%A5%D0%BE%D1%87%D1%83%20%D0%B7%D0%B0%D0%BF%D0%B8%D1%81%D0%B0%D1%82%D1%8C%D1%81%D1%8F%20%D0%BD%D0%B0%20%D0%BA%D0%BE%D0%BD%D1%81%D1%83%D0%BB%D1%8C%D1%82%D0%B0%D1%86%D0%B8%D1%8E.%20%D0%9F%D0%BE%D0%B4%D1%81%D0%BA%D0%B0%D0%B6%D0%B8%D1%82%D0%B5%2C%20%D0%BF%D0%BE%D0%B6%D0%B0%D0%BB%D1%83%D0%B9%D1%81%D1%82%D0%B0%2C%20%D0%BA%D0%BE%D0%B3%D0%B4%D0%B0%20%D0%BC%D0%BE%D0%B6%D0%BD%D0%BE%20%D1%81%D0%BE%D0%B7%D0%B2%D0%BE%D0%BD%D0%B8%D1%82%D1%8C%D1%81%D1%8F%20%D0%B4%D0%BB%D1%8F%20%D0%B7%D0%BD%D0%B0%D0%BA%D0%BE%D0%BC%D1%81%D1%82%D0%B2%D0%B0%3F" target="_blank" rel="noopener" aria-label="Записаться в Telegram">
+        <svg class="header-cta__icon" viewBox="0 0 24 24" aria-hidden="true" focusable="false">
+          <path d="M21.7 3.6 18.4 20c-.2 1-1 1.2-1.8.7l-5-3.7-2.4 2.3c-.3.3-.5.5-1 .5l.4-5.2 9.5-8.6c.4-.4-.1-.6-.6-.2L5.7 13.2.6 11.6c-1.1-.3-1.1-1.1.2-1.6L20.6 2.4c.9-.3 1.7.2 1.1 1.2Z"/>
+        </svg>
+        <span>Записаться</span>
+      </a>
     </header>
 
     <main id="main">
@@ -366,7 +377,8 @@
       <section class="section experience" id="experience" aria-labelledby="experience-title">
         <div class="experience__content reveal">
           <h2 class="experience__title" id="experience-title">Профессиональный путь</h2>
-          <div class="experience__tracks">
+          <button class="experience-toggle" type="button" aria-expanded="false" aria-controls="experience-tracks">Смотреть подробнее</button>
+          <div class="experience__tracks" id="experience-tracks">
             <section class="experience-track" aria-labelledby="education-title">
               <div class="experience-track__heading">
                 <h3 id="education-title">Образование</h3>

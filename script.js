@@ -1,5 +1,34 @@
 const tabs = Array.from(document.querySelectorAll('[role="tab"]'));
 const panels = Array.from(document.querySelectorAll('[role="tabpanel"]'));
+const navToggle = document.querySelector('.nav-toggle');
+const siteNav = document.querySelector('.nav');
+
+if (navToggle && siteNav) {
+  navToggle.addEventListener('click', () => {
+    const isOpen = navToggle.getAttribute('aria-expanded') === 'true';
+    navToggle.setAttribute('aria-expanded', String(!isOpen));
+    siteNav.classList.toggle('is-open', !isOpen);
+  });
+
+  siteNav.querySelectorAll('a').forEach((link) => {
+    link.addEventListener('click', () => {
+      navToggle.setAttribute('aria-expanded', 'false');
+      siteNav.classList.remove('is-open');
+    });
+  });
+}
+
+const experienceToggle = document.querySelector('.experience-toggle');
+const experienceSection = document.querySelector('.experience');
+
+if (experienceToggle && experienceSection) {
+  experienceToggle.addEventListener('click', () => {
+    const isOpen = experienceToggle.getAttribute('aria-expanded') === 'true';
+    experienceToggle.setAttribute('aria-expanded', String(!isOpen));
+    experienceSection.classList.toggle('is-open', !isOpen);
+    experienceToggle.textContent = isOpen ? 'Смотреть подробнее' : 'Свернуть';
+  });
+}
 
 function activateTab(tab) {
   const target = tab.dataset.tab;

@@ -109,7 +109,7 @@ textarea {
   inset: 0 0 auto;
   z-index: 10;
   display: grid;
-  grid-template-columns: auto 1fr;
+  grid-template-columns: auto 1fr auto;
   align-items: center;
   gap: 28px;
   padding: 18px max(var(--page-gutter), calc((100vw - var(--max)) / 2));
@@ -151,6 +151,60 @@ textarea {
 
 .nav a:hover {
   color: var(--graphite);
+}
+
+.header-cta {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  min-height: 42px;
+  padding: 11px 18px;
+  color: var(--paper);
+  background: var(--graphite);
+  border: 1px solid var(--graphite);
+  border-radius: 4px;
+  font-size: 13px;
+  font-weight: 600;
+  line-height: 1;
+  letter-spacing: 0.04em;
+  text-decoration: none;
+  transition: background 220ms ease, color 220ms ease, transform 220ms ease;
+}
+
+.header-cta:hover {
+  color: var(--graphite);
+  background: transparent;
+  transform: translateY(-2px);
+}
+
+.header-cta__icon {
+  width: 15px;
+  height: 15px;
+  flex: 0 0 auto;
+  fill: currentColor;
+}
+
+.nav-toggle {
+  display: none;
+  width: 44px;
+  height: 44px;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  gap: 6px;
+  color: var(--graphite);
+  background: transparent;
+  border: 1px solid rgba(37, 35, 33, 0.18);
+  border-radius: 999px;
+  cursor: pointer;
+}
+
+.nav-toggle span {
+  display: block;
+  width: 20px;
+  height: 1px;
+  background: currentColor;
 }
 
 .section {
@@ -1659,6 +1713,22 @@ h4 {
   font-size: var(--section-title-size);
 }
 
+.experience-toggle {
+  display: none;
+  width: 100%;
+  margin: 0 0 18px;
+  padding: 14px 18px;
+  color: var(--graphite);
+  background: transparent;
+  border: 1px solid rgba(37, 35, 33, 0.18);
+  border-radius: 999px;
+  font-size: 12px;
+  font-weight: 700;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  cursor: pointer;
+}
+
 .experience__intro {
   max-width: 1180px;
   margin: 0 0 clamp(22px, 3vw, 38px);
@@ -2846,11 +2916,52 @@ details p {
   }
 
   .site-header {
-    grid-template-columns: auto 1fr;
+    grid-template-columns: auto 1fr auto auto;
+    justify-content: space-between;
+    gap: 12px;
+  }
+
+  .nav-toggle {
+    grid-column: 4;
+    display: inline-flex;
+  }
+
+  .header-cta {
+    grid-column: 3;
   }
 
   .nav {
-    display: none;
+    position: absolute;
+    top: calc(100% + 8px);
+    right: max(var(--page-gutter), calc((100vw - var(--max)) / 2));
+    left: max(var(--page-gutter), calc((100vw - var(--max)) / 2));
+    display: flex;
+    flex-direction: column;
+    align-items: stretch;
+    gap: 0;
+    padding: 8px 18px;
+    background: rgba(246, 241, 233, 0.96);
+    border: 1px solid rgba(37, 35, 33, 0.12);
+    box-shadow: 0 18px 42px rgba(37, 35, 33, 0.12);
+    opacity: 0;
+    pointer-events: none;
+    transform: translateY(-8px);
+    transition: opacity 180ms ease, transform 180ms ease;
+  }
+
+  .nav.is-open {
+    opacity: 1;
+    pointer-events: auto;
+    transform: translateY(0);
+  }
+
+  .nav a {
+    padding: 13px 0;
+    border-bottom: 1px solid rgba(37, 35, 33, 0.09);
+  }
+
+  .nav a:last-child {
+    border-bottom: 0;
   }
 
   .hero,
@@ -3100,6 +3211,17 @@ details p {
     padding: 14px var(--page-gutter);
   }
 
+  .header-cta {
+    min-height: 38px;
+    padding: 10px 12px;
+    font-size: 11px;
+  }
+
+  .header-cta__icon {
+    width: 14px;
+    height: 14px;
+  }
+
   .brand {
     width: 56px;
   }
@@ -3174,6 +3296,10 @@ details p {
 
   .belief__text p {
     font-size: clamp(16px, 4.6vw, 20px);
+  }
+
+  .belief {
+    display: none;
   }
 
   .method {
@@ -3362,10 +3488,7 @@ details p {
   }
 
   .process__action {
-    justify-self: stretch;
-    width: 100%;
-    min-height: auto;
-    padding: 18px 16px;
+    display: none;
   }
 
   .process__lead {
@@ -3556,6 +3679,31 @@ details p {
   .confidentiality {
     padding-top: 28px;
     padding-bottom: 30px;
+  }
+
+  .experience-toggle {
+    display: inline-flex;
+    align-items: center;
+    justify-content: space-between;
+  }
+
+  .experience-toggle::after {
+    content: "+";
+    font-size: 18px;
+    font-weight: 400;
+    line-height: 1;
+  }
+
+  .experience.is-open .experience-toggle::after {
+    content: "−";
+  }
+
+  .experience:not(.is-open) .experience__tracks {
+    display: none;
+  }
+
+  .experience.is-open .experience__tracks {
+    display: grid;
   }
 
   .experience__intro,
